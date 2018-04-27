@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="2">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiConnect" name="UiConnect" testItemId="10" title="UI Connect: ProvarContactUsDemo">
@@ -30,7 +30,7 @@
           <value class="value" valueClass="string">Always</value>
         </argument>
         <argument id="targetDescription">
-          <value class="value" valueClass="string">On ? page</value>
+          <value class="value" valueClass="string">On MyPageObject page</value>
         </argument>
         <argument id="windowSelection">
           <value class="value" valueClass="string">Default</value>
