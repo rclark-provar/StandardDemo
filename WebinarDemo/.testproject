@@ -23,6 +23,16 @@
         </connection>
       </connections>
     </connectionClass>
+    <connectionClass name="ui">
+      <connections>
+        <connection name="ProvarWebsiteDemo">
+          <summary>Local website demo</summary>
+          <connectionUrls>
+            <connectionUrl url="se:baseUrl=file:///Users/richardclark/Downloads/Webinar-Provar-ContactUs-Demo/Contact%20Us%20-%20Test%20Automation%20for%20Salesforce%20_%20Provar.html"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
   </connectionClasses>
   <browserConfigurations>
     <browserConfiguration adjustBrowserWidthForChromeIde="true" browserHeight="0" browserWidth="0" name="Full Screen">
