@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase>
+<testCase id="8">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: ResultsOrg (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="63" title="Salesforce Connect: GeraintWaters (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">GeraintWaters</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">ResultsOrg</value>
+          <value class="value" valueClass="string">GeraintWaters</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
-        </argument>
-        <argument id="uiApplicationName">
-          <value class="value" valueClass="string">Sales</value>
-        </argument>
-        <argument id="quickUiLogin">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="closeAllPrimaryTabs">
-          <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="reuseConnectionName"/>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Fail</value>
         </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
         <argument id="privateBrowsingMode"/>
         <argument id="enableObjectIdLogging">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="autoCleanup"/>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
         <argument id="username"/>
@@ -96,17 +96,17 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/Provar-Demo-Leads.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Sheet1</worksheetName>
-            <valuesRange class="value" valueClass="string">A1:H11</valuesRange>
+            <valuesRange class="value" valueClass="string">A1:H3</valuesRange>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
       <clauses>
         <clause name="substeps" testItemId="25">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="26" title="Insert Lead">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="26" title="Insert Lead via UI">
               <arguments>
                 <argument id="description">
-                  <value class="value" valueClass="string">Insert Lead</value>
+                  <value class="value" valueClass="string">Insert Lead via UI</value>
                 </argument>
               </arguments>
               <clauses>
@@ -115,7 +115,7 @@
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="4" title="On SF Lead Home screen">
                       <arguments>
                         <argument id="uiConnectionName">
-                          <value class="value" valueClass="string">ResultsOrg</value>
+                          <value class="value" valueClass="string">GeraintWaters</value>
                         </argument>
                         <argument id="target">
                           <value class="uiTarget" uri="sf:ui:target?object=Lead&amp;action=ObjectHome"/>
@@ -202,7 +202,7 @@
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="7" title="On SF Lead New screen">
                       <arguments>
                         <argument id="uiConnectionName">
-                          <value class="value" valueClass="string">ResultsOrg</value>
+                          <value class="value" valueClass="string">GeraintWaters</value>
                         </argument>
                         <argument id="target">
                           <value class="uiTarget" uri="sf:ui:target?object=Lead&amp;noOverride=true&amp;action=New"/>
@@ -688,7 +688,7 @@
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="21" title="On SF Lead View screen">
                       <arguments>
                         <argument id="uiConnectionName">
-                          <value class="value" valueClass="string">ResultsOrg</value>
+                          <value class="value" valueClass="string">GeraintWaters</value>
                         </argument>
                         <argument id="target">
                           <value class="uiTarget" uri="sf:ui:target?object=Lead&amp;noOverride=true&amp;action=View"/>
@@ -719,10 +719,8 @@
                       <clauses>
                         <clause name="substeps" testItemId="22">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" name="UiAssert" testItemId="63" title="UI Assert">
-                              <tags>
-                                <string>disabled</string>
-                              </tags>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" name="UiAssert" testItemId="64" title="UI Assert">
+                              <tags/>
                               <arguments>
                                 <argument id="resultName">
                                   <value class="value" valueClass="string">Values</value>
@@ -814,14 +812,180 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="4" title="Finally: ">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="65" title="For Each: {LeadDataAPI}=&gt;leadAPI">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="LeadDataAPI"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">3</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">leadAPI</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="LeadDataAPI" variableScope="Test">
+          <cacheToken>/Users/richardclark/git/StandardDemo/WebinarDemo/templates/Provar-Demo-Leads.xlsx;1527003838000</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="FirstName"/>
+            <apiParam name="LastName"/>
+            <apiParam name="Company"/>
+            <apiParam name="Email"/>
+            <apiParam name="City"/>
+            <apiParam name="Country"/>
+            <apiParam name="ExpectedOwner"/>
+            <apiParam name="ExpectedLeadScore"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/Provar-Demo-Leads.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Sheet1</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:H11</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="substeps" testItemId="66">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="28" title="Insert Lead via API - rows 3 onwards">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Insert Lead via API - rows 3 onwards</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="29">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="67" title="Create Object: Lead=&gt;LeadAPIId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">Lead</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">LeadAPIId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">GeraintWaters</value>
+                        </argument>
+                        <argument id="LastName">
+                          <value class="variable">
+                            <path element="leadAPI"/>
+                            <path element="LastName"/>
+                          </value>
+                        </argument>
+                        <argument id="Company">
+                          <value class="variable">
+                            <path element="leadAPI"/>
+                            <path element="Company"/>
+                          </value>
+                        </argument>
+                        <argument id="FirstName">
+                          <value class="variable">
+                            <path element="leadAPI"/>
+                            <path element="FirstName"/>
+                          </value>
+                        </argument>
+                        <argument id="Country">
+                          <value class="variable">
+                            <path element="leadAPI"/>
+                            <path element="Country"/>
+                          </value>
+                        </argument>
+                        <argument id="assignmentRuleId">
+                          <value class="value" valueClass="string">01Q0N00000055z7UAA</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="City">
+                          <value class="variable">
+                            <path element="leadAPI"/>
+                            <path element="City"/>
+                          </value>
+                        </argument>
+                        <argument id="Email">
+                          <value class="variable">
+                            <path element="leadAPI"/>
+                            <path element="Email"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">GeraintWaters</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Lead</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=LastName" name="LastName" title="LastName"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Company" name="Company" title="Company"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=FirstName" name="FirstName" title="FirstName"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=City" name="City" title="City"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Country" name="Country" title="Country"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Email" name="Email" title="Email"/>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="68" title="Read Object: Lead = {LeadAPIId}">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">Lead</value>
+                        </argument>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">LeadRead</value>
+                        </argument>
+                        <argument id="objectId">
+                          <value class="variable">
+                            <path element="LeadAPIId"/>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">GeraintWaters</value>
+                        </argument>
+                        <argument id="Data_Quality__c">
+                          <value class="value" valueClass="decimal">3.0</value>
+                        </argument>
+                        <argument id="Id">
+                          <value class="value" valueClass="string">00Q0N00000XvBTVUA3</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                      <resultAssertions>
+                        <resultAssertion resultName="Data_Quality__c" title="Check Data_Quality__c">
+                          <expected class="variable">
+                            <path element="leadAPI"/>
+                            <path element="ExpectedLeadScore"/>
+                          </expected>
+                        </resultAssertion>
+                      </resultAssertions>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">GeraintWaters</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">Lead</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Data_Quality__c" name="Data_Quality__c" title="Data Quality"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Id" name="Id" title="Lead ID"/>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="40" title="Finally: ">
       <arguments>
         <argument id="description"/>
       </arguments>
       <clauses>
-        <clause name="hidden" testItemId="18">
+        <clause name="hidden" testItemId="41">
           <steps>
-            <caseCall testCaseId="323ac3dd-379e-45cd-a2af-a8a5e5b3776c" testCasePath="tests/Write Test Results to Salesforce.testcase" testItemId="19">
+            <caseCall testCaseId="323ac3dd-379e-45cd-a2af-a8a5e5b3776c" testCasePath="tests/Write Test Results to Salesforce.testcase" testItemId="42">
               <arguments>
                 <argument id="TestCaseName">
                   <value class="funcCall" id="TestCaseName"/>

@@ -71,7 +71,7 @@
       <clauses>
         <clause name="substeps" testItemId="8">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="9" title="Set the First Name to Li">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="9" title="Set the First Name to {UniqueId(6)}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:pageobject:field?field=firstName&amp;pageId=pageobjects.MyPageObject"/>
@@ -80,7 +80,11 @@
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
                 <argument id="value">
-                  <value class="value" valueClass="string">Li</value>
+                  <value class="funcCall" id="UniqueId">
+                    <argument id="length">
+                      <value class="value" valueClass="decimal">6</value>
+                    </argument>
+                  </value>
                 </argument>
                 <argument id="blur">
                   <value class="value" valueClass="boolean">false</value>
@@ -101,7 +105,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the First Name to Li</value>
+                  <value class="value" valueClass="string">Set the First Name to {UniqueId(6)}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -130,7 +134,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="10" title="Set the Last Name to Chen">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="10" title="Set the Last Name to {UniqueId(8)}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:pageobject:field?field=LastName&amp;pageId=pageobjects.MyPageObject"/>
@@ -139,7 +143,11 @@
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
                 <argument id="value">
-                  <value class="value" valueClass="string">Chen</value>
+                  <value class="funcCall" id="UniqueId">
+                    <argument id="length">
+                      <value class="value" valueClass="decimal">8</value>
+                    </argument>
+                  </value>
                 </argument>
                 <argument id="blur">
                   <value class="value" valueClass="boolean">false</value>
@@ -160,7 +168,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Last Name to Chen</value>
+                  <value class="value" valueClass="string">Set the Last Name to {UniqueId(8)}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -248,7 +256,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="12" title="Set the Email to asiamed@provartesting.com">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="12" title="Set the Email to {UniqueId(10, ALPHA)}@provartesting.com">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:pageobject:field?field=Email&amp;pageId=pageobjects.MyPageObject"/>
@@ -257,7 +265,21 @@
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
                 <argument id="value">
-                  <value class="value" valueClass="string">asiamed@provartesting.com</value>
+                  <value class="compound">
+                    <parts>
+                      <funcCall id="UniqueId">
+                        <argument id="length">
+                          <value class="value" valueClass="decimal">10</value>
+                        </argument>
+                        <argument id="format">
+                          <value class="variable">
+                            <path element="ALPHA"/>
+                          </value>
+                        </argument>
+                      </funcCall>
+                      <value valueClass="string">@provartesting.com</value>
+                    </parts>
+                  </value>
                 </argument>
                 <argument id="blur">
                   <value class="value" valueClass="boolean">false</value>
@@ -278,7 +300,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Email to asiamed@provartesting.com</value>
+                  <value class="value" valueClass="string">Set the Email to {UniqueId(10, ALPHA)}@provartesting.com</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
