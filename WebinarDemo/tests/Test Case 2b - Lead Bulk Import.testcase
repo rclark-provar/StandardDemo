@@ -43,13 +43,13 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="2" title="Set Values: StartTime">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="74" title="Set Values: TestStartTime">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
             <namedValues mutable="Mutable">
               <namedValue name="valuePath">
-                <value class="value" valueClass="string">StartTime</value>
+                <value class="value" valueClass="string">TestStartTime</value>
               </namedValue>
               <namedValue name="value">
                 <value class="variable">
@@ -64,7 +64,20 @@
         </argument>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="69" title="Read Excel">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Excel</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="70"/>
+      </clauses>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="3" title="For Each: {LeadData}=&gt;lead">
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="list">
           <value class="variable">
@@ -104,6 +117,9 @@
         <clause name="substeps" testItemId="25">
           <steps>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="26" title="Insert Lead via UI">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Insert Lead via UI</value>
@@ -978,14 +994,16 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="40" title="Finally: ">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="71" title="Finally: Save our test results">
       <arguments>
-        <argument id="description"/>
+        <argument id="description">
+          <value class="value" valueClass="string">Save our test results</value>
+        </argument>
       </arguments>
       <clauses>
-        <clause name="hidden" testItemId="41">
+        <clause name="hidden" testItemId="72">
           <steps>
-            <caseCall testCaseId="323ac3dd-379e-45cd-a2af-a8a5e5b3776c" testCasePath="tests/Write Test Results to Salesforce.testcase" testItemId="42">
+            <caseCall testCaseId="323ac3dd-379e-45cd-a2af-a8a5e5b3776c" testCasePath="tests/Write Test Results to Salesforce.testcase" testItemId="73">
               <arguments>
                 <argument id="TestCaseName">
                   <value class="funcCall" id="TestCaseName"/>
@@ -995,7 +1013,7 @@
                 </argument>
                 <argument id="TestStartTime">
                   <value class="variable">
-                    <path element="StartTime"/>
+                    <path element="TestStartTime"/>
                   </value>
                 </argument>
               </arguments>
