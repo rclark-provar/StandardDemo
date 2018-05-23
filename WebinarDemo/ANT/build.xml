@@ -15,7 +15,7 @@
 		<Run-Test-Case provarHome="${provar.home}" 
 				projectPath="${testproject.home}" 
 				resultsPath="${testproject.results}" 
-				resultsPathDisposition="Increment" 
+				resultsPathDisposition="Replace" 
 				testEnvironment="" 
 				webBrowser="Chrome" 
 				webBrowserConfiguration="Full Screen" 
@@ -28,9 +28,10 @@
 				invokeTestRunMonitor="true"
 				>
 		
-			<fileset dir="../tests"><include name="Test Case 3 - Lead Conversion &amp; Opportunity.testcase"/></fileset><fileset dir="../tests"><include name="Test Case 2a - Create a Lead.testcase"/></fileset><fileset dir="../tests"><include name="Test Case 2b - Lead Bulk Import.testcase"/></fileset>
+			<fileset id="testcases" dir="../tests"><include name="Test Case 3 - Lead Conversion &amp; Opportunity.testcase"/></fileset><fileset id="testcases" dir="../tests"><include name="Test Case 2a - Create a Lead.testcase"/></fileset><fileset id="testcases" dir="../tests"><include name="Test Case 2b - Lead Bulk Import.testcase"/></fileset>
 
-			<emailProperties sendEmail="true" primaryRecipients="richard.clark@provartesting.com" ccRecipients="" bccRecipients="" emailSubject="Provar Demo test run report" attachExecutionReport="false" attachZip="false"/>
+			<emailProperties sendEmail="true" primaryRecipients="richard.clark@provartesting.com" ccRecipients="" bccRecipients="" emailSubject="Provar Demo test run report" attachExecutionReport="true" attachZip="false"/>
+			<attachmentProperties includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="false" includeTestCaseDescription="false" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="false" includeDebugMessages="false" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
 		</Run-Test-Case>
 
 	</target>
