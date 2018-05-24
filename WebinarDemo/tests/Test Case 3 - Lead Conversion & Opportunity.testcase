@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <testCase>
+  <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: GeraintWaters (Test)">
       <arguments>
@@ -39,6 +40,16 @@
         </argument>
         <argument id="webBrowser"/>
       </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Do Stuff">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Do Stuff</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="3"/>
+      </clauses>
     </apiCall>
   </steps>
 </testCase>
