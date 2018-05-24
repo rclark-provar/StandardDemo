@@ -197,7 +197,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="11" title="Set the Company to Provar Demo 1 {UniqueId(6)}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="11" title="Set the Company to Essentials Demo {UniqueId(6)}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:pageobject:field?field=company&amp;pageId=pageobjects.MyPageObject"/>
@@ -208,7 +208,7 @@
                 <argument id="value">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">Provar Demo 1 </value>
+                      <value valueClass="string">Essentials Demo </value>
                       <funcCall id="UniqueId">
                         <argument id="length">
                           <value class="value" valueClass="decimal">6</value>
@@ -236,7 +236,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Company to Provar Demo 1 {UniqueId(6)}</value>
+                  <value class="value" valueClass="string">Set the Company to Essentials Demo {UniqueId(6)}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
