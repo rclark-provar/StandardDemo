@@ -197,7 +197,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="11" title="Set the Company to Asia Medical Industries">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="11" title="Set the Company to Asia Medical Industries {UniqueId(6)}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:pageobject:field?field=company&amp;pageId=pageobjects.MyPageObject"/>
@@ -206,7 +206,16 @@
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
                 <argument id="value">
-                  <value class="value" valueClass="string">Asia Medical Industries</value>
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">Asia Medical Industries </value>
+                      <funcCall id="UniqueId">
+                        <argument id="length">
+                          <value class="value" valueClass="decimal">6</value>
+                        </argument>
+                      </funcCall>
+                    </parts>
+                  </value>
                 </argument>
                 <argument id="blur">
                   <value class="value" valueClass="boolean">false</value>
@@ -227,7 +236,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Company to Asia Medical Industries</value>
+                  <value class="value" valueClass="string">Set the Company to Asia Medical Industries {UniqueId(6)}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
