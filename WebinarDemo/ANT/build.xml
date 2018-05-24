@@ -35,4 +35,31 @@
 		</Run-Test-Case>
 
 	</target>
+	<target name="test2b">
+			<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+		
+			<Run-Test-Case provarHome="${provar.home}" 
+					projectPath="${testproject.home}" 
+					resultsPath="${testproject.results}" 
+					resultsPathDisposition="Replace" 
+					testEnvironment="" 
+					webBrowser="Firefox" 
+					webBrowserConfiguration="Full Screen" 
+					excludeCallableTestCases="true" 
+					salesforceMetadataCache="Reuse" 
+					projectCachePath="../../.provarCaches" 
+					testOutputlevel="WARNING" 
+					pluginOutputlevel="WARNING"
+					stopTestRunOnError="false"
+					invokeTestRunMonitor="true"
+					>
+			
+		        <fileset id="testcases" dir="../tests">
+		        	<include name="Test Case 2b - Lead Bulk Import.testcase"/>
+		        </fileset>
+
+				<emailProperties sendEmail="true" primaryRecipients="richard.clark@provartesting.com" ccRecipients="" bccRecipients="" emailSubject="Provar Demo test run report" attachExecutionReport="true" attachZip="false"/>
+				<attachmentProperties includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="true" includeTestCaseDescription="true" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="false" includeDebugMessages="false" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
+			</Run-Test-Case>
+		</target>	
 </project>
