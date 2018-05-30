@@ -289,5 +289,7 @@
     <argument id="TestStartTime"/>
   </args>
   <parameterValueSources/>
-  <tags/>
+  <tags>
+    <string>disabled</string>
+  </tags>
 </testCase>
