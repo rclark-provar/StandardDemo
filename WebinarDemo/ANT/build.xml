@@ -1,6 +1,6 @@
 <project default="runtests">
 	<property environment="env"/>
-	<property name="provar.home" value="/Applications/Provar 1.9.1.05.app/Contents/Eclipse/"/>
+	<property name="provar.home" value="/Applications/Provar.app/Contents/Eclipse/"/>
 	<property name="testproject.home" value=".."/>
 	<property name="testproject.results" value="../ANT/Results"/>
 	
@@ -28,38 +28,11 @@
 				invokeTestRunMonitor="true"
 				>
 		
-			<fileset id="testcases" dir="../tests"><include name="Test Case 3 - Lead Conversion &amp; Opportunity.testcase"/></fileset><fileset id="testcases" dir="../tests"><include name="Test Case 2a - Create a Lead.testcase"/></fileset><fileset id="testcases" dir="../tests"><include name="Test Case 2b - Lead Bulk Import.testcase"/></fileset>
+			<fileset dir="../tests"><include name="Write Test Results to Salesforce.testcase"/></fileset><fileset dir="../tests"><include name="Test Case 1 - Demo to BB.testcase"/></fileset><fileset dir="../tests"><include name="Initialise Test Suite.setup"/></fileset>
 
 			<emailProperties sendEmail="true" primaryRecipients="richard.clark@provartesting.com" ccRecipients="" bccRecipients="" emailSubject="Provar Demo test run report" attachExecutionReport="true" attachZip="false"/>
-			<attachmentProperties includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="false" includeTestCaseDescription="false" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="false" includeDebugMessages="false" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
+			<attachmentProperties includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="false" includeTestCaseDescription="false" includeScreenshots="false" includeWarningMessages="false" includeInfoMessages="true" includeDebugMessages="false" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="true"/>
 		</Run-Test-Case>
 
 	</target>
-	<target name="test2b">
-			<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
-		
-			<Run-Test-Case provarHome="${provar.home}" 
-					projectPath="${testproject.home}" 
-					resultsPath="${testproject.results}" 
-					resultsPathDisposition="Replace" 
-					testEnvironment="" 
-					webBrowser="Firefox" 
-					webBrowserConfiguration="Full Screen" 
-					excludeCallableTestCases="true" 
-					salesforceMetadataCache="Reuse" 
-					projectCachePath="../../.provarCaches" 
-					testOutputlevel="WARNING" 
-					pluginOutputlevel="WARNING"
-					stopTestRunOnError="false"
-					invokeTestRunMonitor="true"
-					>
-			
-		        <fileset id="testcases" dir="../tests">
-		        	<include name="Test Case 2b - Lead Bulk Import.testcase"/>
-		        </fileset>
-
-				<emailProperties sendEmail="true" primaryRecipients="richard.clark@provartesting.com" ccRecipients="" bccRecipients="" emailSubject="Provar Demo test run report" attachExecutionReport="true" attachZip="false"/>
-				<attachmentProperties includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="true" includeTestCaseDescription="true" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="false" includeDebugMessages="false" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
-			</Run-Test-Case>
-		</target>	
 </project>
