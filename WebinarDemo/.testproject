@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+<testProject selectedBrowserConfigurationName="Full Screen" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedEnvironment="Lightning">
   <title>/WebinarDemo/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -7,18 +7,79 @@
   <sourcePath>src</sourcePath>
   <secureStoragePath>.secrets</secureStoragePath>
   <browserDebugPort>0</browserDebugPort>
+  <environments>
+    <environment name="Classic">
+      <summary/>
+    </environment>
+    <environment name="Lightning">
+      <summary/>
+    </environment>
+    <environment name="Headless">
+      <summary/>
+    </environment>
+  </environments>
+  <variables>
+    <testVariable name="_chromeOptions">
+      <valueType class="textType">
+        <constraints>
+          <valueConstraint name="minLength">0</valueConstraint>
+          <valueConstraint name="maxLength">9999</valueConstraint>
+          <valueConstraint name="regex"/>
+        </constraints>
+      </valueType>
+      <summary>To run with UI output supressed\t</summary>
+      <values>
+        <testVariableValue>
+          <value class="value" valueClass="string">++headless</value>
+        </testVariableValue>
+        <testVariableValue envName="Headless">
+          <value class="value" valueClass="string">--headless</value>
+        </testVariableValue>
+        <testVariableValue envName="Classic">
+          <value class="value" valueClass="string">++headless</value>
+        </testVariableValue>
+        <testVariableValue envName="Lightning">
+          <value class="value" valueClass="string">++headless</value>
+        </testVariableValue>
+      </values>
+    </testVariable>
+    <testVariable name="LightningEnabled">
+      <valueType class="buttonType"/>
+      <summary/>
+      <values>
+        <testVariableValue/>
+        <testVariableValue envName="Classic">
+          <value class="value" valueClass="string">false</value>
+        </testVariableValue>
+        <testVariableValue envName="Lightning">
+          <value class="value" valueClass="string">true</value>
+        </testVariableValue>
+      </values>
+    </testVariable>
+  </variables>
   <connectionClasses>
     <connectionClass name="sf">
       <connections>
         <connection name="GeraintWaters">
+          <summary/>
           <connectionUrls>
             <connectionUrl secureStorageNodeId="33c34a62-8ab0-49c6-97e4-35255bb23f6d" url="sf:user=demo@provartesting.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl envName="Classic" secureStorageNodeId="6ad50b1f-90ba-4d58-9328-9429cc59d2b1" url="sf:user=demo@provartesting.com;password={password};environment=PROD_DEV"/>
+            <connectionUrl envName="Lightning" secureStorageNodeId="59433c2b-6d76-45a5-8440-c4b917ea3b0e" url="sf:user=demo@provartesting.com;password={password};environment=PROD_DEV;lightningMode=true"/>
           </connectionUrls>
         </connection>
         <connection name="RichardClark">
           <summary>Richard - EMEA Sales</summary>
           <connectionUrls>
-            <connectionUrl url="sf:user=richard.demo@provartesting.com;environment=PROD_DEV;logonAsConnection=GeraintWaters;lightningMode=true"/>
+            <connectionUrl secureStorageNodeId="8bea7134-9ffd-472a-803c-eceb989e23d6" url="sf:user=provardemo@provartesting.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl envName="Classic" secureStorageNodeId="59fff901-16bf-494d-88c3-bf46c03f0f57" url="sf:user=provardemo@provartesting.com;password={password};environment=PROD_DEV"/>
+            <connectionUrl envName="Lightning" secureStorageNodeId="89b6e146-4a01-4ec6-8760-609d0dbf59e7" url="sf:user=provardemo@provartesting.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+          </connectionUrls>
+        </connection>
+        <connection name="ProvarResults">
+          <summary>\t</summary>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="ef4147ce-4fae-4929-a8b2-0f74ae03e53b" url="sf:user=provartidemo@provartesting.com;password={password};environment=PROD_DEV;lightningMode=true"/>
           </connectionUrls>
         </connection>
       </connections>
@@ -33,7 +94,60 @@
         </connection>
       </connections>
     </connectionClass>
+    <connectionClass name="webservice">
+      <connections>
+        <connection name="JiraREST">
+          <summary>Jira Connection</summary>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="3041dec8-65a9-464f-a342-85443dec5c3f" url="restservice:url=https://provartesting.atlassian.net/;user=richard.clark@provartesting.com;password={password};authenticationType=BASIC_AUTHENTICATION"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
   </connectionClasses>
+  <tagTypes>
+    <tagType name="functionalarea" tagClass="functionalarea" title="Functional Area">
+      <summary>The functional area that a Test Item belongs to</summary>
+      <tags>
+        <tag name="Opportunity Management">
+          <summary/>
+        </tag>
+        <tag name="Lead Management">
+          <summary/>
+        </tag>
+        <tag name="Case Management">
+          <summary/>
+        </tag>
+      </tags>
+    </tagType>
+    <tagType name="sla" tagClass="sla" title="SLA Requirement">
+      <summary>Service Level Agreement requirement</summary>
+      <tags>
+        <slaTag expectedDurationMs="2000" maximumDurationMs="5000" name="VFPageLoadTime">
+          <summary>Maximum VF page load time requirement</summary>
+        </slaTag>
+      </tags>
+      <tagTypeTargets>
+        <tagTypeTarget targetName="com.provar.core.model.test.api.ITestItem"/>
+      </tagTypeTargets>
+    </tagType>
+    <tagType name="owner" tagClass="owner" title="Business Owner">
+      <summary>The person or team that owns a Test Case on the business side</summary>
+      <tags>
+        <tag name="Geraint Waters">
+          <summary/>
+        </tag>
+      </tags>
+    </tagType>
+    <tagType name="maintainer" tagClass="maintainer" title="Test Case Maintainer">
+      <summary>The person or team responsible for maintaining a Test Case</summary>
+      <tags>
+        <tag name="Bob Selby">
+          <summary/>
+        </tag>
+      </tags>
+    </tagType>
+  </tagTypes>
   <browserConfigurations>
     <browserConfiguration adjustBrowserWidthForChromeIde="true" browserHeight="0" browserWidth="0" name="Full Screen">
       <summary>Full screen with Test Builder adjustment</summary>
@@ -61,6 +175,7 @@
     <browserApplication connectionTypes="sf" name="ServiceMax FSA">
       <properties>
         <browserPlatformProperty name="bundleId" platform="IOS" type="DesiredCapability" value="com.servicemaxinc.svmxfieldserviceapp"/>
+        <browserPlatformProperty name="app" platform="DESKTOP" type="DesiredCapability" value="C:\\Program Files\\ServiceMax\\ServiceMax Field Service\\Laptop Mobile.exe"/>
       </properties>
     </browserApplication>
   </browserApplications>

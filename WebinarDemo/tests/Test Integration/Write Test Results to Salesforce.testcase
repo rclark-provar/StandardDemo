@@ -18,7 +18,7 @@
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: ResultsOrg (Test)">
               <arguments>
                 <argument id="connectionName">
-                  <value class="value" valueClass="string">GeraintWaters</value>
+                  <value class="value" valueClass="string">ProvarResults</value>
                 </argument>
                 <argument id="resultName">
                   <value class="value" valueClass="string">ResultsOrg</value>
