@@ -860,7 +860,7 @@
       <clauses>
         <clause name="hidden" testItemId="18">
           <steps>
-            <caseCall testCaseId="323ac3dd-379e-45cd-a2af-a8a5e5b3776c" testCasePath="tests/Write Test Results to Salesforce.testcase" testItemId="19">
+            <caseCall testCaseId="323ac3dd-379e-45cd-a2af-a8a5e5b3776c" testCasePath="tests/Test Integration/Write Test Results to Salesforce.testcase" testItemId="19">
               <arguments>
                 <argument id="TestCaseName">
                   <value class="funcCall" id="TestCaseName"/>
@@ -879,7 +879,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="323ac3dd-379e-45cd-a2af-a8a5e5b3776c" testCasePath="tests/Write Test Results to Salesforce.testcase" testItemId="64">
+    <caseCall testCaseId="323ac3dd-379e-45cd-a2af-a8a5e5b3776c" testCasePath="tests/Test Integration/Write Test Results to Salesforce.testcase" testItemId="64">
       <arguments>
         <argument id="TestCaseName"/>
         <argument id="TestCaseResult"/>
@@ -916,6 +916,18 @@
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
+        <argument id="CloseDate">
+          <value class="funcCall" id="DateAdd">
+            <argument id="date">
+              <value class="variable">
+                <path element="TODAY"/>
+              </value>
+            </argument>
+            <argument id="amount">
+              <value class="value" valueClass="decimal">90</value>
+            </argument>
+          </value>
+        </argument>
       </arguments>
       <parameterGeneratorProperties>
         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">GeraintWaters</propertyValue>
@@ -927,6 +939,7 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=StageName" name="StageName" title="StageName"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=Probability" name="Probability" title="Probability"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=ForecastCategoryName" name="ForecastCategoryName" title="ForecastCategoryName"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=CloseDate" name="CloseDate" title="CloseDate"/>
       </generatedParameters>
     </apiCall>
   </steps>
